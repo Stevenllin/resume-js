@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Path</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <div class="loadingStar" id="loadingStar">
+        <div id="start1"></div>
+        <div id="start2"></div>
+        <div id="start3"></div>
+    </div>
+
+    <div class="container">
+        <div class="loading1" id="loading1">
+            <h1>
+                Education Path
+            </h1>
+        </div>
+
+        <div class="icon">
+            <img src="images/school.png"  id="school" alt="" width="50" height="50">
+            <img src="images/quiz.png" id="quiz" alt="" width="50" height="50">
+            <img src="images/youth.png" id="youth" alt="" width="50" height="50">
+        </div>
+
+        <div class="icon">
+            <img src="images/book.png"  id="book" alt="" width="50" height="50">
+            <img src="images/conference.png" id="conference" alt="" width="50" height="50">
+            <img src="images/project.png" id="project" alt="" width="50" height="50">
+            <img src="images/document.png" id="document" alt="" width="50" height="50">
+
+        </div>
+
+        <div class="bio1">
+            <div id="box1" class="box1">
+                <div class="bio2" id="bio2">
+                    <!-- <div class="ball" style="background-color: #2200AA;transform: translate(55px, 55px);box-shadow: 5px 5px 5px 10px #2200AA; width:80px; height:80px;"></div>
+                    <div class="ball" style="background-color:orange;transform: translate(75px, 200px);box-shadow: 5px 5px 5px 10px orange; width:30px; height:30px;"></div>
+                    <div class="ball" style="background-color:whitesmoke;transform: translate(200px, 215px);box-shadow: 5px 5px 5px 10px whitesmoke; width:60px; height:60px;"></div> -->
+                    <div class="ball" style="background-color: orange;transform: translate(280px, 130px);box-shadow: 0px 0px 5px 45px orange; width:30px; height:30px;"></div>
+                    <div class="ball" style="background-color:#2828FF;transform: translate(60px, 200px);box-shadow: 0px 0px 6px 45px #2828FF; width:30px; height:30px;"></div>
+                    <!-- <div class="ball" style="background-color:whitesmoke;transform: translate(200px, 215px);box-shadow: 5px 5px 5px 10px whitesmoke; width:60px; height:60px;"></div> -->
+                    
+                    <div id="box2">
+                        <div class="circle2">
+                            <div class="circle1">
+                                <img src="images/college02.jpg" alt="" class="img4" id="img4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="box3">
+                <div class="bio4" id="fju">
+                    <ul>
+                        <p style="border-left: 6px solid orange;">bachelor's degree in <span style="color: orange;">FJU</span></p>
+
+                        <li>Major in Department of Physics</li>
+
+                        <li>Final Average: 76.8</li>
+
+                        <li>Sep 2013 – Jun 2017</li>
+                    </ul>
+                </div>
+
+                <div class="bio4" id="ncku">
+                    <ul>
+                        <p style="border-left: 6px solid #2828FF;">master's degree in <span style="color: #2828FF;">NCKU</span></p>
+
+                        <li>Major in Department of Photonics</li>
+
+                        <li>Final Average: 83.8</li>
+
+                        <li>Sep 2017 – Jun 2019</li>
+                    </ul>
+                </div>
+
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid orange;">學業表現</p>
+    
+                        <li>大學平均歷年排名<span style="color: orange; font-size: 24px;">8名</span>。</li>
+    
+                        <li>曾參加校內節能減碳創意海報競賽，榮獲<span style="color: orange; font-size: 24px;">第一名</span>。</li>
+    
+                        <li>曾在電子/電路學課堂中，透過Arduino軟件完成音樂小夜燈以及藍芽音響，並獲得老師嘉許。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid orange;">自主學習</p>
+        
+                        <li>參加校外STP人才種子培訓的半年計劃，主要透過知名企業高階主管提供的經驗作為課程並搭配多樣化的個人與團體作業，培訓基礎的商業知識以及邏輯思考能力。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid orange;">
+                            校內職務
+                        </p>
+                        
+                        <li>擔任<span style="color: orange; font-size: 24px;">迎新宿營總召</span>，負責分配與監督每一位工作人員的進度，並規劃三天兩夜的活動行程。</li>
+        
+                        <li>擔任大二至大四<span style="color: orange; font-size: 24px;">班級代表</span>，負責作為學生與校方之間的溝通橋樑，協助老師處理校內事務。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid #2828FF;">畢業論文</p>
+        
+                        <li>Studies of Bis-(4,4',6,6'-tetramethyl-2,2'-bipyridine)copper(I)/(II) bis(trifluoromethanesulfonyl)imide for Monolithic Dye Sensitized Solar Cell</li>
+        
+                        <li>本論文利用NSL方式製備多孔性的PEDOT:PSS/Au電極，並首次搭配銅電解質製作大面積的單一片式染料敏化太陽能電池，應於在室外環境下轉換效率可高達<span style="color: #2828FF; font-size: 24px;">6.7%</span>。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid #2828FF;">研討會經驗</p>
+    
+                        <li>參加<span style="color: #2828FF; font-size: 24px;">日本京都IPEROP19國際研討會</span>與<span style="color: #2828FF; font-size: 24px;">台南交通大學光電年會</span>，發表單一片式染料敏化太陽能電池應用於室內環境下之研究。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid #2828FF;">產學合作案</p>
+                        
+                        <li>與永光化學合作為期一年的計劃，擔任專案的<span style="color: #2828FF; font-size: 24px;">主要負責人之一</span>，成功發展出低成本且高效能的染料敏化陽能電池，在室內條件下轉換效率可高達<span style="color: #2828FF; font-size: 24px;">22.0%</span>。</li>
+                    </ul>
+                </div>
+    
+                <div class="bio3">
+                    <ul>
+                        <p style="border-left: 6px solid #2828FF;">期刊發表</p>
+        
+                        <li>Energy Harvesting Under Dim-Light Condition With Dye-Sensitized and Perovskite Solar Cells</li>
+        
+                        <li>擔任<span style="color: #2828FF; font-size: 24px;">撰寫期刊負責人之一</span>，研究鈷電解質在傳統三明治結構下的化學表現，並優化其室內條件下轉換效率。</li>
+                    </ul>
+                </div>
+
+                <div class="button">
+                    <button id="btn1">FJU</button>
+                    <button id="btn2">NCKU</button>
+                </div>                
+            </div>
+    </div>
+
+    <script src="throttle.js"></script>
+    <script src="education.js"></script>
+    
+</body>
+</html>

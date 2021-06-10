@@ -1,0 +1,342 @@
+let objLoadingStar = document.getElementById('loadingStar');
+let objLoading1 = document.getElementById('loading1');
+let objLoading3 = document.getElementById('loading3');
+
+function starPage(x){
+    let objLoading = x;
+
+    let objOpacity = objLoading.style.opacity = 0;
+    let objOpacityInt = parseInt(objOpacity);     
+
+    let fader = setInterval(function(){
+        objOpacityInt += 0.005;
+        document.getElementById('loadingStar').style.opacity = objOpacityInt;   
+        
+        if(objOpacityInt > 1){
+            window.clearInterval(fader);
+        }
+    }, 15);
+}
+
+starPage(objLoadingStar);
+
+function txtPageIn(x){
+    let objLoading = x;
+    let objOpacity = objLoading.style.opacity = 0;
+    let objOpacityInt = parseInt(objOpacity);     
+    
+    let fader = setInterval(function(){
+        objOpacityInt += 0.01;
+        if(objLoading.classList.contains('loading1')){
+            document.getElementById('loading1').style.opacity = objOpacityInt;
+        }
+        if(objLoading.classList.contains('loading3')){
+            document.getElementById('loading3').style.opacity = objOpacityInt;
+        }
+        if(objLoading.classList.contains('box1')){
+            document.querySelector('.box1').style.opacity = objOpacityInt;
+        }
+    
+        if(objOpacityInt > 1){
+            window.clearInterval(fader);
+        } 
+    }, 10);
+}
+
+
+function txtPageOut(x){
+    let objLoading = x;
+    let objOpacity = objLoading.style.opacity = 1;
+    let objOpacityInt = parseInt(objOpacity);     
+    
+    let fader = setInterval(function(){
+        objOpacityInt -= 0.01;
+        if(objLoading.classList.contains('loading1')){
+            document.getElementById('loading1').style.opacity = objOpacityInt;
+        }
+        if(objLoading.classList.contains('loading3')){
+            document.getElementById('loading3').style.opacity = objOpacityInt;
+        }
+        if(objLoading.classList.contains('box1')){
+            document.querySelector('.box1').style.opacity = objOpacityInt;
+        }
+    
+        if(objOpacityInt <= 0){
+            window.clearInterval(fader);
+        } 
+    }, 10);
+}
+
+
+function textFunIn(x){
+    let textPos = x
+
+    if(textPos.classList.contains('loading1')){
+        let textSpace = textPos.style.setProperty('transform', `translateY(20%)`);
+        let i = 20
+        let fader = setInterval(function(){
+            i = i - 1;
+            textSpace = textPos.style.setProperty('transform', `translateY(${i}%)`);
+            if (i <= 0){
+                window.clearInterval(fader);
+            }
+        }, 25)
+    }
+
+    if(textPos.classList.contains('loading3')){
+        let textSpace = textPos.style.setProperty('transform', 'translateX(20%)');
+        let i = 20;
+        let fader = setInterval(function(){
+            i = i - 1;
+            textSpace = textPos.style.setProperty('transform', `translateX(${i}%)`);
+            if (i <= 0){
+                window.clearInterval(fader);
+            }
+        }, 20)
+    }
+};
+
+function textFunOut(x){
+    let textPos = x
+
+    if(textPos.classList.contains('loading1')){
+        let textSpace = textPos.style.setProperty('transform', `translateY(0%)`);
+        let i = 0;
+        let fader = setInterval(function(){
+            i = i + 1;
+            textSpace = textPos.style.setProperty('transform', `translateY(-${i}%)`);
+            if (i >= 20){
+                window.clearInterval(fader);
+            }
+        }, 25)
+    }
+
+    if(textPos.classList.contains('loading3')){
+        let textSpace = textPos.style.setProperty('transform', 'translateX(0%)');
+        let i = 0;
+        let fader = setInterval(function(){
+            i = i + 1;
+            textSpace = textPos.style.setProperty('transform', `translateX(${i}%)`);
+            if (i >= 20){
+                window.clearInterval(fader);
+            }
+        }, 20)
+    }
+};
+
+const bio2 = document.getElementById('bio2');
+const img4 = document.querySelector('.img4');
+
+function spin(deg){
+    let i = 0;
+
+    let spinner = setInterval(function(){
+        i++;
+
+        bio2.style.setProperty('transform', `rotate(${i}deg)`)
+        img4.style.setProperty('transform', `rotate(-${i}deg)`)
+        
+        if(i >= deg){
+            window.clearInterval(spinner);
+        } 
+    }, 20);
+}
+
+function reverse(deg){
+    bio2.style.setProperty('transform', `rotate(45deg)`)
+    img4.style.setProperty('transform', `rotate(45deg)`)
+
+    let i = deg;
+    
+    let spinner = setInterval(function(){
+        i--;
+        
+        bio2.style.setProperty('transform', `rotate(${i}deg)`)
+        img4.style.setProperty('transform', `rotate(-${i}deg)`)
+        
+        if(i <= 0){
+            window.clearInterval(spinner);
+        } 
+    }, 20);
+}
+
+const box1 = document.querySelector('.box1');
+
+box1.style.setProperty('transform', 'translate(-600px, -100px)');
+
+function rotateOpen(){
+    spin(45);
+    txtPageIn(box1);
+
+    let i = 0;
+    let rotater = setInterval(function(){
+        i++;
+        y = -100 + i;
+        x = 15 * Math.pow((y + 100), 0.5) - 150; 
+        
+        box1.style.setProperty('transform', `translate(${x}px, ${y}px)`);
+        
+        if(x == 0){
+            window.clearInterval(rotater);
+        }
+    }, 8)
+}
+
+function rotateClose(){
+    reverse(45);
+    txtPageOut(box1);
+
+    let i = 100;
+    let rotater = setInterval(function(){
+        i++;
+        y = -100 + i;
+        x = 15 * Math.pow((y + 100), 0.5) - 150; 
+        
+        box1.style.setProperty('transform', `translate(${x}px, ${y}px)`);
+
+        if(y == 375){
+            window.clearInterval(rotater);
+        }
+        
+    }, 8)
+}
+
+setTimeout(() => {
+    textFunIn(objLoading1);
+    txtPageIn(objLoading1);   
+}, 2000);
+
+setTimeout(()=>{
+    textFunIn(objLoading3);
+    txtPageIn(objLoading3);   
+}, 2500);
+
+setTimeout(()=>{
+    rotateOpen();
+}, 2750);
+
+let btn1 = document.getElementById('btn1');
+let btn2 = document.getElementById('btn2');
+
+btn1.classList.add('button-active');
+
+function btnClick(){
+
+    if(btn2.classList.contains('button-active')){
+        textFunOut(objLoading1);
+        txtPageOut(objLoading1);
+
+        textFunOut(objLoading3);
+        txtPageOut(objLoading3);
+
+        rotateClose();
+
+        setTimeout(() => {
+            btn2.classList.remove('button-active');
+            btn1.classList.add('button-active');
+        }, 1000);
+
+        setTimeout(() => {
+            changeTxt();
+            textFunIn(objLoading1);
+            txtPageIn(objLoading1);
+        }, 2000);
+
+        setTimeout(() => {
+            textFunIn(objLoading3);
+            txtPageIn(objLoading3);
+        }, 2500);
+        
+
+        setTimeout(() => {
+            rotateOpen();
+            changePic();
+        }, 2750);
+    }
+    
+    if(btn1.classList.contains('button-active')){
+        textFunOut(objLoading1);
+        txtPageOut(objLoading1);
+
+        textFunOut(objLoading3);
+        txtPageOut(objLoading3);
+
+        rotateClose();
+
+        setTimeout(() => {
+            btn1.classList.remove('button-active');
+            btn2.classList.add('button-active');
+        }, 1000);
+
+        setTimeout(() => {
+            changeTxt();
+            textFunIn(objLoading1);
+            txtPageIn(objLoading1);
+        }, 2000);
+        
+        setTimeout(() => {
+            textFunIn(objLoading3);
+            txtPageIn(objLoading3);
+        }, 2500);
+
+        setTimeout(() => {
+            rotateOpen();
+            changePic();
+        }, 2750);
+    }
+
+        setTimeout(() => {
+            changeIcon();
+        }, 3000);
+}
+
+btn1.addEventListener('click', () => debounceFunction(btnClick, 600));
+btn2.addEventListener('click', () => debounceFunction(btnClick, 600));
+
+let imgSource = document.getElementById('img4').src
+
+function changePic(){
+    if(btn1.classList.contains('button-active')){
+        document.getElementById('img4').src = "images/college01.jpg";
+    }
+    if(btn2.classList.contains('button-active')){
+        document.getElementById('img4').src = "images/sideproject.jpg";
+    }
+}
+
+const txtControls = document.querySelectorAll('.loading3 > .bio2');
+
+function changeTxt(){
+    if(btn1.classList.contains('button-active')){ 
+        txtControls[1].style.setProperty('display', 'none');
+        txtControls[0].style.setProperty('display', 'flex')
+    }
+
+    if(btn2.classList.contains('button-active')){
+        txtControls[0].style.setProperty('display', 'none');
+        txtControls[1].style.setProperty('display', 'flex')
+    }
+}
+
+changeTxt();
+
+const icons = document.querySelectorAll('.icon');
+
+function changeIcon(){
+
+    icons.forEach(icon => icon.style.setProperty('display', 'none'));
+
+    if(btn1.classList.contains('button-active')){
+        icons[1].style.setProperty('display', 'none');
+        icons[0].style.setProperty('display', 'flex');
+    }
+
+    if(btn2.classList.contains('button-active')){
+        icons[0].style.setProperty('display', 'none');
+        icons[1].style.setProperty('display', 'flex');
+    }
+}
+
+changeIcon();
+
+
